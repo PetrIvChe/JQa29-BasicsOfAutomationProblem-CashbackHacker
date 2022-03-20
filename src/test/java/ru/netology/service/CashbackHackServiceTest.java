@@ -9,8 +9,17 @@ class CashbackHackServiceTest {
     @Test
     void shouldReturnRemain500IfAmount500() {
         CashbackHackService cashbackHackService = new CashbackHackService();
+
         int actual = 500;
         int expected = cashbackHackService.remain(500);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldReturnRemain100IfAmount900() {
+        CashbackHackService cashbackHackService = new CashbackHackService();
+        int actual = 100;
+        int expected = cashbackHackService.remain(900);
         assertEquals(expected, actual);
     }
 
@@ -25,7 +34,7 @@ class CashbackHackServiceTest {
     @Test
     void shouldReturnRemain0IfAmount1000() {
         CashbackHackService cashbackHackService = new CashbackHackService();
-        int actual = 0;
+        int actual = 0;   //bug
         int expected = cashbackHackService.remain(1000);
         assertEquals(expected, actual);
     }
@@ -33,8 +42,15 @@ class CashbackHackServiceTest {
     @Test
     void shouldReturnRemain0IfAmount1001() {
         CashbackHackService cashbackHackService = new CashbackHackService();
-        int actual = 0;
+        int actual = 0; //bug?
         int expected = cashbackHackService.remain(1001);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void shouldReturnRemain0IfAmount1500() {
+        CashbackHackService cashbackHackService = new CashbackHackService();
+        int actual = 0; //bug?
+        int expected = cashbackHackService.remain(1500);
         assertEquals(expected, actual);
     }
 }
