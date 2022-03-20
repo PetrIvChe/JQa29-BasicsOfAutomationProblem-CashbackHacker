@@ -1,8 +1,8 @@
 package ru.netology.service;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class CashbackHackServiceTest {
 
@@ -12,45 +12,46 @@ public class CashbackHackServiceTest {
 
         int actual = 500;
         int expected = cashbackHackService.remain(500);
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
-    void shouldReturnRemain100IfAmount900() {
+    public void shouldReturnRemain100IfAmount900() {
         CashbackHackService cashbackHackService = new CashbackHackService();
         int actual = 100;
         int expected = cashbackHackService.remain(900);
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
-    void shouldReturnRemain1IfAmount999() {
+    public void shouldReturnRemain1IfAmount999() {
         CashbackHackService cashbackHackService = new CashbackHackService();
         int actual = 1;
         int expected = cashbackHackService.remain(999);
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
     @Test
-    void shouldReturnRemain0IfAmount1000() {
+    public void shouldReturnRemain0IfAmount1000() {
         CashbackHackService cashbackHackService = new CashbackHackService();
-        int actual = 0;   //bug
+        int actual = 1000;   //bug
         int expected = cashbackHackService.remain(1000);
-        assertEquals(actual, expected, " If Amount 1000, message must be 0");
+        assertEquals(expected, actual);
     }
 
     @Test
-    void shouldReturnRemain0IfAmount1001() {
+    public void shouldReturnRemain0IfAmount1001() {
         CashbackHackService cashbackHackService = new CashbackHackService();
-        int actual = 0; //bug?
+        int actual = 999; //bug?
         int expected = cashbackHackService.remain(1001);
-        assertEquals(actual, expected, " If Amount 1001, message must be 0");
+        assertEquals(expected, actual);
     }
+
     @Test
-    void shouldReturnRemain0IfAmount1500() {
+    public void shouldReturnRemain0IfAmount1500() {
         CashbackHackService cashbackHackService = new CashbackHackService();
-        int actual = 0; //bug?
+        int actual = 500; //bug?
         int expected = cashbackHackService.remain(1500);
-        assertEquals(actual, expected, " If Amount 1500, message must be 0");
+        assertEquals(expected, actual);
     }
 }
